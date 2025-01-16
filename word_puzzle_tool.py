@@ -44,8 +44,11 @@ st.title("Word Puzzle Analyzer")
 # Upload or Paste Words
 uploaded_file = st.file_uploader("Upload a file (TXT):", type=["txt"])
 input_text = st.text_area("Or paste your words here:", height=200)
+
+# If a file is uploaded, display its content in the text area
 if uploaded_file:
     input_text = uploaded_file.read().decode("utf-8")
+    st.text_area("Uploaded Words:", value=input_text, height=200, disabled=True)
 
 # Display cleaned word list
 if st.button("Clean Word List"):
